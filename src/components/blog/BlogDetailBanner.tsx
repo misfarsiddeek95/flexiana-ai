@@ -18,14 +18,14 @@ export default function BlogDetailBanner({
   imageAlt,
 }: BlogDetailBannerProps) {
   return (
-    <section className="relative w-full overflow-hidden h-[400px] md:h-[500px] lg:h-[600px]">
+    <section className="relative w-full h-screen bg-black overflow-hidden">
       {/* Background Image or Fallback */}
       {imageUrl ? (
         <Image
           src={imageUrl!}
           alt={imageAlt || ""}
           fill
-          className="object-cover z-0"
+          className="object-contain z-0"
           priority
           sizes="100vw"
         />
