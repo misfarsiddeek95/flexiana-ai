@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+}
+
+body {
+  font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Float Animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-15px) scale(1.03);
+    opacity: 0.95;
+  }
+}
+
+/* Drift Animation */
+@keyframes drift {
+
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+
+  25% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.animate-float {
+  animation: float 7s ease-in-out infinite, drift 5s ease-in-out infinite;
+}
+
+/* AI Highlight Text */
+.ai-statement-text {
+  background-image: linear-gradient(100deg,
+      transparent 20%,
+      rgba(139, 92, 246, 0.4) 50%,
+      transparent 80%),
+    linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #fb923c 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% auto, 200% auto;
+  background-position: -100% 0, 200% 0;
+  background-repeat: no-repeat;
+}
+
+/* === FIXED: Gradient Text Animation (No IDE warnings) === */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient-shift 8s linear infinite;
+}
+
+@keyframes shineSweep {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
+
+
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Contact Modal Enhancements */
+.contact-modal-backdrop {
+  backdrop-filter: blur(8px);
+}
+
+/* Smooth focus transitions for form inputs */
+input:focus,
+textarea:focus {
+  transform: translateY(-1px);
+}
+
+/* Custom scrollbar for modal (if content overflows) */
+.contact-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.contact-modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.contact-modal-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.contact-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Footer Enhancements */
+footer {
+  position: relative;
+}
+
+/* Smooth gradient animation for footer orbs */
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(20px, -20px) scale(1.05);
+  }
+}
+
+footer .absolute.blur-3xl {
+  animation: float-slow 20s ease-in-out infinite;
+}
+
+footer .absolute.blur-3xl:nth-child(2) {
+  animation-delay: -10s;
+  animation-direction: reverse;
+}
+
+/* Footer link hover effect */
+footer a:not(.group) {
+  position: relative;
+}
+
+footer a:not(.group)::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #42a5f5, #7e57c2);
+  transition: width 0.3s ease;
+}
+
+footer a:not(.group):hover::after {
+  width: 100%;
+}
+
+/* Social icon gradient on hover */
+footer .group svg path {
+  transition: fill 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer .backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+  }
+}
+
+@layer utilities {
+  .transform-3d {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Fix for Safari to force hardware acceleration/3D context */
+  .safari-transform-fix {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}

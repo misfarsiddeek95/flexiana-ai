@@ -1,0 +1,40 @@
+.wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+
+.wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapper:active {
+  cursor: grabbing;
+}
+
+.wrapper.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.scrollContainer {
+  animation: scroll 40s linear infinite;
+  will-change: transform;
+  width: max-content;
+}
+
+.scrollContainer.paused {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-25%);
+  }
+}

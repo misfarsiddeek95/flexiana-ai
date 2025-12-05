@@ -1,0 +1,497 @@
+/* Headings */
+.container h1 {
+    font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 48px;
+    line-height: 56px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    letter-spacing: 0px;
+}
+
+.container h2 {
+    font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 40px;
+    line-height: 48px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-top: 28px;
+    margin-bottom: 14px;
+    letter-spacing: 0px;
+}
+
+.container h3 {
+    font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    letter-spacing: 0px;
+}
+
+.container h4 {
+    font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 0px;
+}
+
+.container h5 {
+    font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 21px;
+    line-height: 28px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    letter-spacing: 0px;
+}
+
+.container h6 {
+    font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    letter-spacing: 0px;
+}
+
+/* Paragraphs */
+.container p {
+    font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+    letter-spacing: 0px;
+}
+
+/* Strong and Bold */
+.container strong,
+.container b {
+    font-weight: 700;
+}
+
+/* Emphasis and Italic */
+.container em,
+.container i {
+    font-style: italic;
+}
+
+/* Images */
+.container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 32px 0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.container pre,
+.container :global(.ql-syntax),
+.container :global(.ql-code-block-container) {
+    background-color: #f5f5f7;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 24px 0;
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+    font-size: 14px;
+    line-height: 24px;
+    color: #1a1a1a;
+}
+
+/* Individual lines in Quill code blocks */
+.container :global(.ql-code-block) {
+    font-family: inherit !important;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    white-space: pre;
+    /* Strictly preserve whitespace and prevent wrapping */
+    min-width: 100%;
+    display: block;
+}
+
+/* Support for inner code tags if present */
+.container pre code,
+.container :global(.ql-syntax) code {
+    font-family: inherit !important;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background: transparent;
+    padding: 0;
+    white-space: pre;
+    tab-size: 2;
+}
+
+/* Inline Code */
+.container code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+    font-size: 16px;
+    background-color: #f5f5f7;
+    color: #c33c00;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Lists */
+.container ul,
+.container ol {
+    font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    color: #1a1a1a;
+    margin: 24px 0;
+    padding-left: 40px;
+    /* Increased padding */
+    list-style-position: outside;
+}
+
+.container ul li,
+.container ol li {
+    margin: 8px 0;
+}
+
+.container ul {
+    list-style-type: disc;
+}
+
+/* List Container - Reset all counters */
+.container ol {
+    padding-left: 0;
+    counter-reset: list-0 list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8;
+}
+
+.container li {
+    list-style-type: none;
+    position: relative;
+    padding-left: 1.5em;
+}
+
+.container :global(.ql-ui) {
+    display: none;
+}
+
+/* Counter Resets for each level */
+/* Level 0 (default) resets everything below it */
+.container li {
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8;
+}
+
+.container li:global(.ql-indent-1) {
+    counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8;
+}
+
+.container li:global(.ql-indent-2) {
+    counter-reset: list-3 list-4 list-5 list-6 list-7 list-8;
+}
+
+.container li:global(.ql-indent-3) {
+    counter-reset: list-4 list-5 list-6 list-7 list-8;
+}
+
+.container li:global(.ql-indent-4) {
+    counter-reset: list-5 list-6 list-7 list-8;
+}
+
+.container li:global(.ql-indent-5) {
+    counter-reset: list-6 list-7 list-8;
+}
+
+.container li:global(.ql-indent-6) {
+    counter-reset: list-7 list-8;
+}
+
+.container li:global(.ql-indent-7) {
+    counter-reset: list-8;
+}
+
+.container li:global(.ql-indent-8) {
+    counter-reset: none;
+}
+
+/* Counter Increments for Ordered Lists */
+.container li[data-list="ordered"] {
+    counter-increment: list-0;
+}
+
+.container li:global(.ql-indent-1)[data-list="ordered"] {
+    counter-increment: list-1;
+}
+
+.container li:global(.ql-indent-2)[data-list="ordered"] {
+    counter-increment: list-2;
+}
+
+.container li:global(.ql-indent-3)[data-list="ordered"] {
+    counter-increment: list-3;
+}
+
+.container li:global(.ql-indent-4)[data-list="ordered"] {
+    counter-increment: list-4;
+}
+
+.container li:global(.ql-indent-5)[data-list="ordered"] {
+    counter-increment: list-5;
+}
+
+.container li:global(.ql-indent-6)[data-list="ordered"] {
+    counter-increment: list-6;
+}
+
+.container li:global(.ql-indent-7)[data-list="ordered"] {
+    counter-increment: list-7;
+}
+
+.container li:global(.ql-indent-8)[data-list="ordered"] {
+    counter-increment: list-8;
+}
+
+/* Marker Content for Ordered Lists */
+.container li[data-list="ordered"]::before {
+    content: counter(list-0) ".";
+}
+
+.container li:global(.ql-indent-1)[data-list="ordered"]::before {
+    content: counter(list-1) ".";
+}
+
+.container li:global(.ql-indent-2)[data-list="ordered"]::before {
+    content: counter(list-2) ".";
+}
+
+.container li:global(.ql-indent-3)[data-list="ordered"]::before {
+    content: counter(list-3) ".";
+}
+
+.container li:global(.ql-indent-4)[data-list="ordered"]::before {
+    content: counter(list-4) ".";
+}
+
+.container li:global(.ql-indent-5)[data-list="ordered"]::before {
+    content: counter(list-5) ".";
+}
+
+.container li:global(.ql-indent-6)[data-list="ordered"]::before {
+    content: counter(list-6) ".";
+}
+
+.container li:global(.ql-indent-7)[data-list="ordered"]::before {
+    content: counter(list-7) ".";
+}
+
+.container li:global(.ql-indent-8)[data-list="ordered"]::before {
+    content: counter(list-8) ".";
+}
+
+/* Marker Content for Bullet Lists */
+.container li[data-list="bullet"]::before {
+    content: "•";
+}
+
+.container li:global(.ql-indent-1)[data-list="bullet"]::before {
+    content: "○";
+}
+
+.container li:global(.ql-indent-2)[data-list="bullet"]::before {
+    content: "■";
+}
+
+.container li:global(.ql-indent-3)[data-list="bullet"]::before {
+    content: "•";
+}
+
+.container li:global(.ql-indent-4)[data-list="bullet"]::before {
+    content: "○";
+}
+
+.container li:global(.ql-indent-5)[data-list="bullet"]::before {
+    content: "■";
+}
+
+/* Common Marker Styles */
+.container li::before {
+    position: absolute;
+    left: 0;
+    width: 1.2em;
+    text-align: right;
+    margin-right: 0.3em;
+    color: #1a1a1a;
+    font-weight: 400;
+}
+
+/* Adjust bullet size (Parent default) */
+.container li[data-list="bullet"]::before {
+    font-size: 1.2em;
+    line-height: 1.2;
+    top: 2px;
+}
+
+/* Reset size for nested bullets */
+.container li[class*="ql-indent"][data-list="bullet"]::before {
+    font-size: 0.6em;
+    line-height: 2.5em;
+    top: 0;
+}
+
+/* Indentation levels (margin-left) */
+.container li:global(.ql-indent-1) {
+    margin-left: 2em;
+}
+
+.container li:global(.ql-indent-2) {
+    margin-left: 4em;
+}
+
+.container li:global(.ql-indent-3) {
+    margin-left: 6em;
+}
+
+.container li:global(.ql-indent-4) {
+    margin-left: 8em;
+}
+
+.container li:global(.ql-indent-5) {
+    margin-left: 10em;
+}
+
+.container li:global(.ql-indent-6) {
+    margin-left: 12em;
+}
+
+.container li:global(.ql-indent-7) {
+    margin-left: 14em;
+}
+
+.container li:global(.ql-indent-8) {
+    margin-left: 16em;
+}
+
+
+
+/* Nested Lists */
+.container ul ul,
+.container ol ul {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.container ul ol,
+.container ol ol {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* Blockquotes */
+.container blockquote {
+    border-left: 4px solid;
+    border-image: linear-gradient(to bottom, #42a5f5, #7e57c2) 1;
+    padding-left: 24px;
+    margin: 32px 0;
+    font-family: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 21px;
+    line-height: 36px;
+    font-style: italic;
+    color: #616161;
+}
+
+/* Links */
+.container a {
+    background: linear-gradient(100.7deg, #42a5f5 5.16%, #7e57c2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
+
+/* Videos */
+.container video {
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 32px 0;
+}
+
+/* Horizontal Rule */
+.container hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 32px 0;
+}
+
+/* Tables (if needed) */
+.container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+}
+
+.container table th,
+.container table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    text-align: left;
+}
+
+.container table th {
+    background-color: #f5f5f7;
+    font-weight: 700;
+}
+
+/* Responsive adjustments for rich text */
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .container h2 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .container h3 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .container h4 {
+        font-size: 21px;
+        line-height: 28px;
+    }
+
+    .container h5,
+    .container h6 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .container p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .container blockquote {
+        font-size: 18px;
+        line-height: 32px;
+    }
+}

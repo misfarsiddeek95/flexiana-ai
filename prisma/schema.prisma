@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model SystemUserType {
+  id          String       @id @default(uuid())
+  name        String       @unique
+  permissions String       @db.Text @default("[]") // Stored as JSON array of permission strings
+  active      Boolean      @default(true)
+  users       SystemUser[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model SystemUser {
+  id          String         @id @default(uuid())
+  name        String
+  email       String         @unique
+  password    String
+  active      Boolean        @default(true)
+  userTypeId  String
+  userType    SystemUserType @relation(fields: [userTypeId], references: [id])
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model Blog {
+  id              String   @id @default(uuid())
+  slug            String   @unique
+  title           String
+  subtitle        String?
+  author          String
+  authorImage     String?
+  publishDate     DateTime
+  readTime        String?
+  imageUrl        String?
+  imageAlt        String?
+  tags            String   @db.Text // Stored as JSON string
+  content         String   @db.LongText
+  metaDescription String?
+  metaKeywords    String?  @db.Text // Stored as JSON string
+  showInHome      Boolean  @default(false)
+  active          Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model CaseStudy {
+  id              String   @id @default(uuid())
+  slug            String   @unique
+  title           String
+  subtitle        String
+  client          String
+  industry        String
+  year            String
+  duration        String
+  heroImage       String?
+  heroVideo       String?
+  heroImageAlt    String?
+  tags            String   @db.Text // Stored as JSON string
+  overview        String   @db.LongText
+  challenge       String   @db.LongText // Stored as JSON string
+  solution        String   @db.LongText // Stored as JSON string
+  techStack       String   @db.LongText // Stored as JSON string
+  results         String   @db.LongText // Stored as JSON string
+  metaDescription String?
+  metaKeywords    String?  @db.Text // Stored as JSON string
+  carouselData    String?  @db.LongText // Stored as JSON string
+  showInHome      Boolean  @default(false)
+  active          Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
