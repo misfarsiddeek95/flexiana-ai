@@ -264,6 +264,15 @@ export default async function CaseStudyViewPage({
                         <div className="space-y-4">
                             <div>
                                 <label className="block text-sm font-medium text-gray-500">
+                                    Client Logo
+                                </label>
+                                <div className="mt-1 break-all text-gray-900">
+                                    {cs.clientLogo || "-"}
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-500">
                                     Hero Image URL
                                 </label>
                                 <div className="mt-1 break-all text-gray-900">

@@ -18,6 +18,8 @@ model SystemUserType {
   users       SystemUser[]
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
+
+  @@map("system_user_types")
 }
 
 model SystemUser {
@@ -30,6 +32,8 @@ model SystemUser {
   userType    SystemUserType @relation(fields: [userTypeId], references: [id])
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
+
+  @@map("system_users")
 }
 
 model Blog {
@@ -51,6 +55,8 @@ model Blog {
   active          Boolean  @default(true)
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+
+  @@map("blogs")
 }
 
 model CaseStudy {
@@ -62,6 +68,7 @@ model CaseStudy {
   industry        String
   year            String
   duration        String
+  clientLogo      String?
   heroImage       String?
   heroVideo       String?
   heroImageAlt    String?
@@ -78,4 +85,6 @@ model CaseStudy {
   active          Boolean  @default(true)
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+
+  @@map("case_studies")
 }

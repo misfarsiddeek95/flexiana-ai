@@ -12,6 +12,7 @@ export interface CaseStudy {
   industry: string;
   year: string;
   duration: string;
+  clientLogo?: string | null;
   heroImage?: string | null;
   heroVideo?: string | null;
   heroImageAlt?: string | null;

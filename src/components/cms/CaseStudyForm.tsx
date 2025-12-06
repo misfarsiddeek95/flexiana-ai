@@ -41,6 +41,7 @@ interface CaseStudyFormData {
     results: ResultsData;
     techStack: TechStackData;
     carouselData: CarouselData;
+    clientLogo?: string | null;
     heroImage?: string | null;
     heroImageAlt?: string | null;
     heroVideo: string | null | undefined;
@@ -79,6 +80,7 @@ export function CaseStudyForm({ initialData, isNew }: CaseStudyFormProps) {
             carouselData: initialData.carouselData
                 ? JSON.parse(initialData.carouselData)
                 : { title: "", points: [] },
+            clientLogo: initialData.clientLogo || undefined,
             metaKeywords: initialData.metaKeywords
                 ? JSON.parse(initialData.metaKeywords)
                 : [],
@@ -103,6 +105,7 @@ export function CaseStudyForm({ initialData, isNew }: CaseStudyFormProps) {
             techStack: { categories: [] },
             results: { description: "", metrics: [], outcomes: [] },
             carouselData: { title: "", points: [] },
+            clientLogo: undefined,
             metaDescription: undefined,
             metaKeywords: [],
         };
@@ -209,6 +212,8 @@ export function CaseStudyForm({ initialData, isNew }: CaseStudyFormProps) {
                                     placeholder="e.g. Gitrevio Inc."
                                 />
                             </div>
+
+
 
                             <div className="sm:col-span-2">
                                 <Label>Subtitle</Label>
@@ -320,6 +325,22 @@ export function CaseStudyForm({ initialData, isNew }: CaseStudyFormProps) {
                         <h2 className="mb-6 text-lg font-semibold text-gray-900 border-b pb-4">Media</h2>
                         <div className="space-y-4">
                             <div>
+                                <Label>Client Logo</Label>
+                                <Controller
+                                    name="clientLogo"
+                                    control={control}
+                                    render={({ field }) => (
+                                        <ImageUpload
+                                            value={field.value || undefined}
+                                            onChange={field.onChange}
+                                            type="case-study"
+                                            label="Client Logo"
+                                        />
+                                    )}
+                                />
+                            </div>
+                            <div>
+
                                 <Label>Hero Image URL</Label>
                                 <Controller
                                     name="heroImage"

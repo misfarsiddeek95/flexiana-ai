@@ -41,6 +41,7 @@ function transformCaseStudy(dbCaseStudy: any): CaseStudy {
         industry: dbCaseStudy.industry,
         year: dbCaseStudy.year,
         duration: dbCaseStudy.duration,
+        clientLogo: dbCaseStudy.clientLogo,
         heroImage: dbCaseStudy.heroImage,
         heroVideo: dbCaseStudy.heroVideo || '',
         heroImageAlt: dbCaseStudy.heroImageAlt,

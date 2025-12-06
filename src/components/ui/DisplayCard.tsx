@@ -13,6 +13,7 @@ interface DisplayCardProps {
   imageHeightClass?: string; // <-- NEW PROP: for flexible image height
   hasVideoThumbnail?: boolean;
   videoUrl?: string;
+  clientLogo?: string | null;
 }
 
 const DisplayCard = memo(function DisplayCard({
@@ -25,6 +26,7 @@ const DisplayCard = memo(function DisplayCard({
   imageHeightClass = "h-[200px]", // <-- Default for blogs
   hasVideoThumbnail = false,
   videoUrl,
+  clientLogo,
 }: DisplayCardProps) {
   return (
     <Link
@@ -87,13 +89,26 @@ const DisplayCard = memo(function DisplayCard({
           className="p-4 flex flex-col grow"
           style={{ gap: "10px", paddingBottom: "12px" }}
         >
-          <h3
-            className="font-semibold text-[#1A1A1A]
-                       text-[21px] leading-7"
-            style={{ letterSpacing: "0px" }}
-          >
-            {title}
-          </h3>
+          <div className="flex justify-between items-start gap-3">
+            <h3
+              className="font-semibold text-[#1A1A1A]
+                        text-[21px] leading-7"
+              style={{ letterSpacing: "0px" }}
+            >
+              {title}
+            </h3>
+            {clientLogo && (
+              <div className="relative w-20 h-20 lg:w-24 lg:h-24 flex-shrink-0 bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                <Image
+                  src={clientLogo}
+                  alt={`${title} client logo`}
+                  fill
+                  className="object-contain p-2"
+                  sizes="(min-width: 1024px) 96px, 80px"
+                />
+              </div>
+            )}
+          </div>
 
           {tags && (
             <div className="flex flex-wrap gap-2 mt-1">
